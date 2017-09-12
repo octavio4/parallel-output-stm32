@@ -39,7 +39,7 @@ void setup()
     pinMode(PA2,OUTPUT);
     pinMode(PA3,OUTPUT);
 
-           frame_size=3*4*6; //4; //4 strips of 64 pixels 
+           frame_size=3*4*6; //4; //4 strips of 6 pixels 
            led_order=GRB;   
            setup_output_table(0,0,1,0,3,0,2,0);  //1=PA1
            get_bits=&get_rgb44;             
