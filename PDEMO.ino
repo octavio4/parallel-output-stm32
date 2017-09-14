@@ -29,10 +29,10 @@ unsigned char time_transfer,led_order;     //time betwen a dma transfer in cpu c
 #include "WS28.CPP"
 #include "APA.CPP"
 
-  //19804  17096
+ 
 void setup()
 {
-  if (DEBUG) { Serial.begin(250000);delay(1000);   //+1376bytes flash
+  if (DEBUG) { Serial.begin(250000);delay(1000); 
    Serial.println("serial ok");}
     pinMode(PA0,OUTPUT);
     pinMode(PA1,OUTPUT);
