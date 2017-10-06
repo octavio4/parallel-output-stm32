@@ -45,7 +45,6 @@ estado_transfer=255;dma_count=0;
 
 void start_transfer(uint32_t nb)
 {
-int  c1=0;
 while(estado_transfer<255);
 dma_size=nb;
 dma_count=0;
