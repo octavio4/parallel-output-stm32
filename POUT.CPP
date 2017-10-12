@@ -62,6 +62,7 @@ timer.resume();
  * pint is d- channel3  optional
  */
 
+
 void setup_output_table(int pin0,int pin1,int pin2,int pin3,int pin4,int pin5,int pin6,int pin7)
 {
   long outpt;
@@ -86,25 +87,34 @@ void setup_output_table(int pin0,int pin1,int pin2,int pin3,int pin4,int pin5,in
 	}
   if (c1&4)
 	{
-	if(pin4) outpt|=1<<pin2;
-	if(pin5) outpt|=1<<(pin3+16);
+	if(pin4) outpt|=1<<pin4;
+	if(pin5) outpt|=1<<(pin5+16);
 	}
   else  {
-	if(pin4) outpt|=1<<(pin2+16);
-	if(pin5) outpt|=+1<<pin3;
+	if(pin4) outpt|=1<<(pin4+16);
+	if(pin5) outpt|=+1<<pin5;
 	}
   if (c1&8)
 	{
-	if(pin6) outpt|=1<<pin2;
-	if(pin7) outpt|=1<<(pin3+16);
+	if(pin6) outpt|=1<<pin6;
+	if(pin7) outpt|=1<<(pin7+16);
 	}
   else  {
-	if(pin6) outpt|=1<<(pin2+16);
-	if(pin7) outpt|=+1<<pin3;
+	if(pin6) outpt|=1<<(pin6+16);
+	if(pin7) outpt|=+1<<pin7;
 	}
    output_table[c1]=outpt;
   }
 }
 
+  void invert_output_table(void) //use if output is connected to a inverter
+  {
+    long outpt;
+  int c1=16;
+  while(c1--){
+    outpt=((output_table[c1]&0xffff)<<16)+((output_table[c1]>>16));
+    output_table[c1]=outpt;
+     }
+  }
 
 
